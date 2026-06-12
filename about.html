@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — BALAI LABS</title>
+  <meta name="description" content="Balai Labs is a not-for-profit SaaS and policy advocacy platform built on validated regional work across the Indo-Pacific." />
+  <link rel="canonical" href="https://www.balailabs.com/about.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #0d0d0d;
+      --paper: #f5f0e8;
+      --cream: #ede7d9;
+      --accent: #c8522a;
+      --muted: #7a7268;
+      --border: #d4ccbc;
+      --mono: 'DM Mono', monospace;
+      --serif: 'Playfair Display', serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.4;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      background: rgba(245, 240, 232, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    nav a.nav-link {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 0.2s;
+      white-space: nowrap;
+      position: relative;
+    }
+
+    nav a.nav-link:hover,
+    nav a.nav-link.active { color: var(--accent); }
+
+    nav a.nav-link.coming-soon { color: var(--border); cursor: pointer; }
+    nav a.nav-link.coming-soon:hover { color: var(--muted); }
+
+    .coming-soon-tooltip {
+      display: none;
+      position: absolute;
+      top: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--ink);
+      color: var(--paper);
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      padding: 0.4rem 0.8rem;
+      white-space: nowrap;
+      z-index: 200;
+    }
+
+    nav a.nav-link.coming-soon:hover .coming-soon-tooltip { display: block; }
+
+    .nav-cta-btn {
+      background: var(--ink);
+      color: var(--paper);
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.6rem 1.25rem;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-cta-btn:hover { background: var(--accent); }
+
+    /* SHARED */
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    /* PAGE HERO */
+    .page-hero {
+      padding: 10rem 3rem 5rem;
+      border-bottom: 1px solid var(--border);
+      max-width: 800px;
+    }
+
+    .page-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1.1;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    .page-hero h1 em { font-style: italic; color: var(--accent); }
+
+    .page-hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 56ch;
+    }
+
+    /* ABOUT GRID */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      padding: 7rem 3rem;
+      border-bottom: 1px solid var(--border);
+      max-width: 800px;
+    }
+
+    .about-body p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-body p strong { color: var(--ink); font-weight: 600; }
+
+    .credentials {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .credential-card {
+      border-left: 2px solid var(--accent);
+      padding-left: 1.5rem;
+    }
+
+    .credential-meta {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .credential-title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--ink);
+    }
+
+    .credential-body {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    #approach {
+      padding: 7rem 3rem;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+    }
+
+    #approach .section-label { color: var(--accent); }
+
+    #approach .section-title {
+      color: var(--ink);
+      max-width: 100%;
+      margin-bottom: 0;
+    }
+
+    .approach-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+      margin-bottom: 4rem;
+    }
+
+    .approach-intro {
+      font-size: 1.1rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+    }
+
+    .approach-card {
+      padding: 2.5rem;
+      border-right: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+
+    .approach-card:last-child { border-right: none; }
+    .approach-card:hover { background: var(--paper); }
+
+    .approach-letter {
+      font-family: var(--serif);
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--accent);
+      opacity: 0.3;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .approach-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      color: var(--ink);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .approach-body {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 2.5rem 3rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-logo {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .footer-logo span { color: var(--accent); }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-links a {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--ink); }
+
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    /* ANIMATIONS */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; flex-wrap: wrap; gap: 0.75rem; }
+      .nav-links { gap: 0.75rem; }
+      nav a.nav-link { font-size: 0.6rem; }
+      .page-hero { padding: 8rem 1.5rem 4rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
+      #approach { padding: 5rem 1.5rem; }
+      .approach-header { grid-template-columns: 1fr; gap: 2rem; }
+      .approach-grid { grid-template-columns: 1fr; }
+      .approach-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .approach-card:last-child { border-bottom: none; }
+      footer { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">BALAI<span>.</span>LABS</a>
+    <div class="nav-links">
+      <a href="/about.html" class="nav-link active">About Us</a>
+      <a href="/#how" class="nav-link">Playbook</a>
+      <a href="#" class="nav-link coming-soon">Use Cases<span class="coming-soon-tooltip">Coming Soon</span></a>
+      <a href="#" class="nav-link coming-soon">Services<span class="coming-soon-tooltip">Coming Soon</span></a>
+      <a href="#" class="nav-link coming-soon">Media<span class="coming-soon-tooltip">Coming Soon</span></a>
+      <a href="/partner.html" class="nav-link">Partner With Us</a>
+    </div>
+    <a href="/#contact" class="nav-cta-btn">Get Free Assessment →</a>
+  </nav>
+
+  <!-- WHO WE ARE -->
+  <section class="about-grid">
+    <div class="reveal">
+      <p class="section-label">Who We Are</p>
+      <h2 class="section-title">Built on validated regional work.</h2>
+      <div class="about-body">
+        <p>Balai Labs was founded to address a gap in the Indo-Pacific — organizations want to adopt data and AI responsibly, but lack the tools, frameworks, and expertise to do so.</p>
+        <p>We combine <strong>deep policy, research, and technical expertise</strong> to help organizations conduct ethical and privacy impact assessments, craft data and AI principles, and build internal capacity for responsible adoption.</p>
+        <p>Our work is grounded in real regional context — not imported frameworks — drawing from years of multistakeholder engagements across the Indo-Pacific.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR APPROACH -->
+  <section id="approach">
+    <div class="approach-header reveal">
+      <div>
+        <p class="section-label">Our Approach</p>
+        <h2 class="section-title">What makes us different.</h2>
+      </div>
+      <p class="approach-intro">Balai Labs is built on a fundamentally different philosophy of data and AI governance — one that starts with people, place, and plurality rather than frameworks and checklists.</p>
+    </div>
+    <div class="approach-grid reveal">
+      <div class="approach-card">
+        <div class="approach-letter">C</div>
+        <h3 class="approach-title">Context</h3>
+        <p class="approach-body">AI governance cannot be copy-pasted. Balai Labs grounds every assessment and framework in the local legal, cultural, and political realities of the communities we serve — because what works in Brussels or Washington rarely works in Manila, Jakarta, or Canberra.</p>
+      </div>
+      <div class="approach-card">
+        <div class="approach-letter">C</div>
+        <h3 class="approach-title">Co-creation</h3>
+        <p class="approach-body">We don't build for communities — we build with them. Every tool, framework, and assessment is developed through genuine partnership with the organizations, governments, and civil society groups across the Indo-Pacific we work alongside.</p>
+      </div>
+      <div class="approach-card">
+        <div class="approach-letter">C</div>
+        <h3 class="approach-title">Complex Adaptive Ecosystem</h3>
+        <p class="approach-body">AI governance is not a checklist. It is a living, dynamic system. We apply complex adaptive systems thinking to understand how technology, policy, people, and institutions interact — and evolve together across the Indo-Pacific.</p>
+      </div>
+      <div class="approach-card">
+        <div class="approach-letter">C</div>
+        <h3 class="approach-title">Color</h3>
+        <p class="approach-body">The Indo-Pacific is not monolithic. Its diversity of languages, cultures, legal systems, and histories must be reflected in how data and AI governance is designed and delivered. We celebrate that plurality as a strength.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">BALAI<span>.</span>LABS</div>
+    <div class="footer-links">
+      <a href="/about.html">About</a>
+      <a href="/#how">Playbook</a>
+      <a href="/partner.html">Partner With Us</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+    </div>
+    <div class="footer-copy">© 2026 BALAI LABS. All rights reserved.</div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
