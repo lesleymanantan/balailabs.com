@@ -3,6 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Analytics (consent-gated, loads only after acceptance) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadBalaiAnalytics() {
+      if (window.balaiGaLoaded) return;
+      window.balaiGaLoaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-PBF8EQ9JVH';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-PBF8EQ9JVH', { anonymize_ip: true });
+    }
+    if (localStorage.getItem('balai-consent') === 'accepted') {
+      loadBalaiAnalytics();
+    }
+  </script>
+
   <title>About Us — BALAI LABS</title>
   <meta name="description" content="Balai Labs is a not-for-profit SaaS and policy advocacy platform built on validated regional work across the Indo-Pacific." />
   <link rel="canonical" href="https://www.balailabs.com/about.html" />
@@ -510,6 +530,36 @@
       });
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
+  </script>
+
+  <!-- COOKIE CONSENT BANNER -->
+  <div id="balai-consent-banner" style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:9999; background:#0d0d0d; color:#f5f0e8; padding:1.25rem 1.5rem; box-shadow:0 -4px 24px rgba(0,0,0,0.2); font-family:'DM Sans',sans-serif;">
+    <div style="max-width:1100px; margin:0 auto; display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; justify-content:space-between;">
+      <p style="font-size:0.9rem; line-height:1.6; color:rgba(245,240,232,0.85); max-width:64ch; margin:0;">
+        We use Google Analytics cookies to understand how visitors use our site and improve it. You can accept or decline — declining keeps analytics off. See our <a href="/privacy-policy.html" style="color:#c8522a; text-decoration:underline;">Privacy Policy</a>.
+      </p>
+      <div style="display:flex; gap:0.75rem; flex-shrink:0;">
+        <button onclick="balaiDeclineConsent()" style="background:transparent; color:#f5f0e8; border:1px solid rgba(245,240,232,0.3); font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; padding:0.75rem 1.5rem; cursor:pointer; transition:border-color 0.2s;">Decline</button>
+        <button onclick="balaiAcceptConsent()" style="background:#c8522a; color:#f5f0e8; border:1px solid #c8522a; font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; padding:0.75rem 1.5rem; cursor:pointer; transition:background 0.2s;">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var banner = document.getElementById('balai-consent-banner');
+      var choice = localStorage.getItem('balai-consent');
+      if (!choice) { banner.style.display = 'block'; }
+      window.balaiAcceptConsent = function() {
+        localStorage.setItem('balai-consent', 'accepted');
+        banner.style.display = 'none';
+        if (typeof loadBalaiAnalytics === 'function') { loadBalaiAnalytics(); }
+      };
+      window.balaiDeclineConsent = function() {
+        localStorage.setItem('balai-consent', 'declined');
+        banner.style.display = 'none';
+      };
+    })();
   </script>
 
 </body>

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Analytics (consent-gated, loads only after acceptance) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    function loadBalaiAnalytics() {
+      if (window.balaiGaLoaded) return;
+      window.balaiGaLoaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-PBF8EQ9JVH';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-PBF8EQ9JVH', { anonymize_ip: true });
+    }
+    if (localStorage.getItem('balai-consent') === 'accepted') {
+      loadBalaiAnalytics();
+    }
+  </script>
+
+  <title>Privacy Policy — BALAI LABS</title>
+  <meta name="description" content="How Balai Labs collects, uses, and protects your personal information across the Indo-Pacific, in line with the Philippine Data Privacy Act and the Australian Privacy Act." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.balailabs.com/privacy-policy.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #0d0d0d;
+      --paper: #f5f0e8;
+      --cream: #ede7d9;
+      --accent: #c8522a;
+      --muted: #7a7268;
+      --border: #d4ccbc;
+      --mono: 'DM Mono', monospace;
+      --serif: 'Playfair Display', serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.4;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      background: rgba(245, 240, 232, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    nav a.nav-link {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 0.2s;
+      white-space: nowrap;
+      position: relative;
+    }
+
+    nav a.nav-link:hover,
+    nav a.nav-link.active { color: var(--accent); }
+
+    nav a.nav-link.coming-soon { color: var(--border); cursor: pointer; }
+    nav a.nav-link.coming-soon:hover { color: var(--muted); }
+
+    .coming-soon-tooltip {
+      display: none;
+      position: absolute;
+      top: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--ink);
+      color: var(--paper);
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      padding: 0.4rem 0.8rem;
+      white-space: nowrap;
+      z-index: 200;
+    }
+
+    nav a.nav-link.coming-soon:hover .coming-soon-tooltip { display: block; }
+
+    .nav-cta-btn {
+      background: var(--ink);
+      color: var(--paper);
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.6rem 1.25rem;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-cta-btn:hover { background: var(--accent); }
+
+    /* PAGE HERO */
+    .policy-hero {
+      padding: 10rem 3rem 3rem;
+      max-width: 900px;
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .policy-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.1;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+
+    .policy-meta {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* POLICY BODY */
+    .policy-body {
+      padding: 2rem 3rem 6rem;
+      max-width: 900px;
+    }
+
+    .policy-intro {
+      font-size: 1.15rem;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .policy-section {
+      margin-bottom: 3rem;
+    }
+
+    .policy-section h2 {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .policy-section h2 .num {
+      font-family: var(--mono);
+      font-size: 1rem;
+      color: var(--accent);
+      font-weight: 400;
+    }
+
+    .policy-section p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+    }
+
+    .policy-section p strong { color: var(--ink); font-weight: 500; }
+
+    .policy-section ul {
+      list-style: none;
+      margin: 0 0 1rem 0;
+      padding: 0;
+    }
+
+    .policy-section ul li {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.8;
+      padding-left: 1.5rem;
+      margin-bottom: 0.6rem;
+      position: relative;
+    }
+
+    .policy-section ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.7rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .policy-section a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .policy-callout {
+      background: var(--cream);
+      border-left: 2px solid var(--accent);
+      padding: 1.5rem 1.75rem;
+      margin: 1.5rem 0;
+    }
+
+    .policy-callout p {
+      margin-bottom: 0;
+      font-size: 1rem;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 2.5rem 3rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-logo {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .footer-logo span { color: var(--accent); }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-links a {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--ink); }
+
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; flex-wrap: wrap; gap: 0.75rem; }
+      .nav-links { gap: 0.75rem; }
+      nav a.nav-link { font-size: 0.6rem; }
+      .policy-hero { padding: 8rem 1.5rem 2rem; }
+      .policy-body { padding: 1.5rem 1.5rem 4rem; }
+      footer { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">BALAI<span>.</span>LABS</a>
+    <div class="nav-links">
+      <a href="/about.html" class="nav-link">About Us</a>
+      <a href="/#platform" class="nav-link">Playbook</a>
+      <a href="#" class="nav-link coming-soon">Use Cases<span class="coming-soon-tooltip">Coming Soon</span></a>
+      <a href="#" class="nav-link coming-soon">Media<span class="coming-soon-tooltip">Coming Soon</span></a>
+      <a href="/#contact" class="nav-link">Contact</a>
+    </div>
+    <a href="/#contact" class="nav-cta-btn">Get Free Assessment →</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="policy-hero">
+    <p class="section-label">Legal</p>
+    <h1>Privacy Policy</h1>
+    <p class="policy-meta">Last updated: 14 June 2026</p>
+  </section>
+
+  <!-- BODY -->
+  <section class="policy-body">
+
+    <p class="policy-intro">Balai Labs ("Balai Labs", "we", "us", or "our") is committed to protecting your privacy and handling your personal information responsibly. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at balailabs.com (the "Website") and subscribe to our newsletter or contact us.</p>
+
+    <div class="policy-section">
+      <h2><span class="num">01</span> Scope</h2>
+      <p>This Privacy Policy applies to personal information collected through our Website, including newsletter subscriptions and email enquiries. It does not cover the Balai Data &amp; AI Playbook assessment platform, which is governed by separate terms made available to registered users of that platform.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2><span class="num">02</span> Who We Are</h2>
+      <p>Balai Labs is a not-for-profit social enterprise providing data and AI governance tools and policy advocacy across the Indo-Pacific. We operate with a presence in the Philippines and Australia, and we handle personal information in accordance with the applicable laws of both jurisdictions, as described in Section 9.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2><span class="num">03</span> Information We Collect</h2>
+      <p>We collect only the information you choose to provide to us. This may include:</p>
+      <ul>
+        <li><strong>Email address</strong> — when you subscribe to our newsletter or contact us by email.</li>
+        <li><strong>Any information you include in your correspondence</strong> — for example, your name, organisation, or the content of an enquiry you send to us.</li>
+      </ul>
+      <p>We do not require you to create an account to use the Website, and we do not collect sensitive personal information through the Website.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2><span class="num">04</span> How We Use Your Information</h2>
+      <p>We use the personal information we collect for the following purposes:</p>
+      <ul>
+        <li>To send you our newsletter and updates about Balai Labs, where you have consented to receive them.</li>
+        <li>To respond to your enquiries and communicate with you.</li>
+        <li>To improve and administer the Website.</li>
+        <li>To comply with our legal obligations.</li>
+      </ul>
+      <p>We will only use your information for the purpose for which it was collected, unless we reasonably consider that we need to use it for another related and compatible purpose, or where we are otherwise permitted or required by law.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2><span class="num">05</span> Newsletter &amp; Third-Party Services</h2>
+      <p>Our newsletter is managed through <strong>Substack</strong>. When you subscribe, your email address is processed and stored by Substack on our behalf in accordance with Substack's own privacy practices. We encourage you to review <a href="https://substack.com/privacy" target="_blank" rel="noopener">Substack's Privacy Policy</a> to understand how they handle your information.</p>
+      <div class="policy-callout">
+        <p>You can unsubscribe from our newsletter at any time using the unsubscribe link included in every email, or by emailing us at <a href="mailto:info@balailabs.com">info@balailabs.com</a>.</p>
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <h2><span class="num">06</span> Analytics &amp; Cookies</h2>
+      <p>We use <strong>Google Analytics 4</strong>, a web analytics service provided by Google, to understand how visitors use our Website. Google Analytics uses cookies and similar technologies to collect information such as your approximate location, device and browser type, pages visited, and time spent on the Website. This information is aggregated and helps us improve our content and services.</p>
+      <p>The data collected is transmitted to and stored by Google, which may process it on servers outside your country of residence. You can learn more about how Google uses this data at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>, and you can opt out of Google Analytics tracking by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>.</p>
+      <p>You can also control or disable cookies through your browser settings at any time.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2><span class="num">07</span> Disclosure of Your Information</h2>
+      <p>We do not sell, rent, or trade your personal information. We may disclose your information only:</p>
+      <ul>
+        <li>To service providers who help us operate the Website and newsletter (such as Substack and Google Analytics), under appropriate confidentiality and data protection obligations.</li>
+        <li>Where required or authorised by law, or in response to a valid legal request.</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2><span class="num">08</span> Data Security &amp; Retention</h2>
+      <p>We take reasonable steps to protect the personal information we hold from misuse, interference, loss, and unauthorised access, modification, or disclosure. We retain your information only for as long as necessary to fulfil the purposes described in this Policy, or as required by law. If you unsubscribe, we will remove your email from our active mailing list.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2><span class="num">09</span> Your Rights</h2>
+      <p>Depending on your location, you have rights in relation to your personal information.</p>
+      <p><strong>Philippines (Republic Act No. 10173, the Data Privacy Act of 2012):</strong> You have the right to be informed, to access, to object, to rectify, to erase or block, to data portability, and to lodge a complaint with the National Privacy Commission.</p>
+      <p><strong>Australia (Privacy Act 1988 and the Australian Privacy Principles):</strong> You have the right to access and correct your personal information, and to make a complaint to the Office of the Australian Information Commissioner (OAIC).</p>
+      <p>To exercise any of these rights, please contact us at <a href="mailto:info@balailabs.com">info@balailabs.com</a>. We will respond within the timeframes required by applicable law.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2><span class="num">10</span> International Transfers</h2>
+      <p>Because we operate across the Indo-Pacific and use service providers that may store data outside your country of residence, your information may be transferred to and processed in jurisdictions other than your own. Where this occurs, we take reasonable steps to ensure your information continues to be protected in accordance with this Policy and applicable law.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2><span class="num">11</span> Children's Privacy</h2>
+      <p>Our Website is not directed at children, and we do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us so we can take appropriate action.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2><span class="num">12</span> Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Last updated" date at the top of this page. We encourage you to review this Policy periodically.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2><span class="num">13</span> Contact Us</h2>
+      <p>If you have any questions about this Privacy Policy or how we handle your personal information, please contact us at <a href="mailto:info@balailabs.com">info@balailabs.com</a>.</p>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">BALAI<span>.</span>LABS</div>
+    <div class="footer-links">
+      <a href="/about.html">About</a>
+      <a href="/#platform">Playbook</a>
+      <a href="/#contact">Contact</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+    </div>
+    <div class="footer-copy">© 2026 BALAI LABS. All rights reserved.</div>
+  </footer>
+
+  <!-- COOKIE CONSENT BANNER -->
+  <div id="balai-consent-banner" style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:9999; background:#0d0d0d; color:#f5f0e8; padding:1.25rem 1.5rem; box-shadow:0 -4px 24px rgba(0,0,0,0.2); font-family:'DM Sans',sans-serif;">
+    <div style="max-width:1100px; margin:0 auto; display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; justify-content:space-between;">
+      <p style="font-size:0.9rem; line-height:1.6; color:rgba(245,240,232,0.85); max-width:64ch; margin:0;">
+        We use Google Analytics cookies to understand how visitors use our site and improve it. You can accept or decline — declining keeps analytics off. See our <a href="/privacy-policy.html" style="color:#c8522a; text-decoration:underline;">Privacy Policy</a>.
+      </p>
+      <div style="display:flex; gap:0.75rem; flex-shrink:0;">
+        <button onclick="balaiDeclineConsent()" style="background:transparent; color:#f5f0e8; border:1px solid rgba(245,240,232,0.3); font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; padding:0.75rem 1.5rem; cursor:pointer; transition:border-color 0.2s;">Decline</button>
+        <button onclick="balaiAcceptConsent()" style="background:#c8522a; color:#f5f0e8; border:1px solid #c8522a; font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; padding:0.75rem 1.5rem; cursor:pointer; transition:background 0.2s;">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var banner = document.getElementById('balai-consent-banner');
+      var choice = localStorage.getItem('balai-consent');
+      if (!choice) { banner.style.display = 'block'; }
+      window.balaiAcceptConsent = function() {
+        localStorage.setItem('balai-consent', 'accepted');
+        banner.style.display = 'none';
+        if (typeof loadBalaiAnalytics === 'function') { loadBalaiAnalytics(); }
+      };
+      window.balaiDeclineConsent = function() {
+        localStorage.setItem('balai-consent', 'declined');
+        banner.style.display = 'none';
+      };
+    })();
+  </script>
+
+</body>
+</html>
