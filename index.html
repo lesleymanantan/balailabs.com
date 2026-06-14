@@ -172,12 +172,20 @@
     .nav-cta-btn:hover { background: var(--accent); }
 
     /* HERO */
+    .hero-wrapper {
+      width: 100%;
+      border-bottom: 1px solid var(--border);
+    }
+
     .hero {
       min-height: 100vh;
       display: grid;
       grid-template-columns: 1fr 1fr;
       padding-top: 5rem;
       align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
     }
 
     .hero-left {
@@ -201,7 +209,7 @@
 
     .hero-title {
       font-family: var(--serif);
-      font-size: clamp(2.8rem, 4.5vw, 4.5rem);
+      font-size: clamp(2.2rem, 3.5vw, 3.8rem);
       line-height: 1.1;
       font-weight: 700;
       letter-spacing: -0.02em;
@@ -252,7 +260,8 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 6rem 3rem 6rem 3rem;
+      align-items: center;
+      padding: 6rem 2.5rem;
       position: relative;
       overflow: hidden;
     }
@@ -1633,7 +1642,7 @@
 
       /* Hero */
       .hero { grid-template-columns: 1fr; }
-      .hero-left { padding: 6rem 1.5rem 3rem; border-right: none; border-bottom: 1px solid var(--border); }
+      .hero-left { padding: 6rem 1.5rem 3rem 1.5rem; border-right: none; border-bottom: 1px solid var(--border); }
       .hero-right { padding: 3rem 1.5rem; }
 
       /* Hero CTA buttons — stack vertically, full-width */
@@ -1708,6 +1717,7 @@
   </nav>
 
   <!-- HERO -->
+  <div class="hero-wrapper">
   <div class="hero">
     <div class="hero-left">
       <p class="hero-eyebrow">SaaS for Social Good</p>
@@ -1739,6 +1749,7 @@
       </div>
     </div>
   </div>
+  </div><!-- end hero-wrapper -->
 
   <!-- PLATFORM MOCKUP -->
   <section id="platform">
