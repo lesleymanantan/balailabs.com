@@ -173,11 +173,21 @@
 
     /* ABOUT GRID */
     .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
+      display: block;
       padding: 7rem 3rem;
       border-bottom: 1px solid var(--border);
+    }
+
+    .about-intro-block {
+      margin-bottom: 4rem;
+    }
+
+    .about-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      padding-top: 4rem;
+      border-top: 1px solid var(--border);
     }
 
     .about-body p {
@@ -235,8 +245,6 @@
       grid-template-columns: 2.5rem 1fr;
       gap: 1rem;
       align-items: start;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid var(--border);
     }
 
     .pillar:last-child {
@@ -282,10 +290,7 @@
     }
 
     .approach-header {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: end;
+      display: block;
       margin-bottom: 4rem;
     }
 
@@ -293,6 +298,8 @@
       font-size: 1.1rem;
       color: var(--muted);
       line-height: 1.8;
+      margin-top: 1.5rem;
+      max-width: none;
     }
 
     .approach-grid {
@@ -397,7 +404,8 @@
       .nav-links { gap: 0.75rem; }
       nav a.nav-link { font-size: 0.6rem; }
       .page-hero { padding: 8rem 1.5rem 4rem; }
-      .about-grid { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
+      .about-grid { padding: 5rem 1.5rem; }
+      .about-pillars { grid-template-columns: 1fr; gap: 3rem; }
       #approach { padding: 5rem 1.5rem; }
       .approach-header { grid-template-columns: 1fr; gap: 2rem; }
       .approach-grid { grid-template-columns: 1fr; }
@@ -424,7 +432,7 @@
 
   <!-- WHO WE ARE -->
   <section class="about-grid">
-    <div class="reveal">
+    <div class="reveal about-intro-block">
       <p class="section-label">Who We Are</p>
       <h2 class="section-title">Responsible data and AI starts with the right foundation.</h2>
       <div class="about-body">
@@ -434,7 +442,7 @@
         <p>Our work is grounded in real regional context — not imported frameworks — drawing from years of multistakeholder engagements across the Indo-Pacific.</p>
       </div>
     </div>
-    <div class="about-right reveal">
+    <div class="about-pillars reveal">
       <div class="pillar">
         <span class="pillar-num">01</span>
         <div class="pillar-text">
