@@ -1,0 +1,4 @@
+-e User-agent: *
+Allow: /
+
+Sitemap: https://www.balailabs.com/sitemap.xml
