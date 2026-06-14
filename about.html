@@ -246,22 +246,30 @@
     .pillar-num {
       font-family: var(--mono);
       font-size: 1rem;
-      color: var(--accent);
-      padding-top: 2.1rem;
+      color: #c8522a !important;
       min-width: 2rem;
       flex-shrink: 0;
+      padding-top: 0.2rem;
+      line-height: 1.75;
     }
 
-    .pillar-text strong {
+    .pillar-body {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      margin-top: 1.25rem;
+    }
+
+    .pillar-text > strong {
       display: block;
       font-weight: 700;
       font-size: 1.1rem;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0;
       color: var(--ink);
       letter-spacing: -0.01em;
     }
 
-    .pillar-text span {
+    .pillar-body > span {
       font-size: 1rem;
       color: var(--muted);
       line-height: 1.75;
@@ -436,17 +444,21 @@
     </div>
     <div class="about-right reveal">
       <div class="pillar">
-        <span class="pillar-num">01</span>
         <div class="pillar-text">
           <strong>Beyond Checklists &amp; Compliance</strong>
-          <span>Balai Labs reimagines ethical and privacy impact assessments of data and AI systems to promote transparency, safety, and accountability. Balai Labs supports organizations in deploying data and AI systems that align with international technical standards, risk management, and ethical frameworks.</span>
+          <div class="pillar-body">
+            <span class="pillar-num">01</span>
+            <span>Balai Labs reimagines ethical and privacy impact assessments of data and AI systems to promote transparency, safety, and accountability. Balai Labs supports organizations in deploying data and AI systems that align with international technical standards, risk management, and ethical frameworks.</span>
+          </div>
         </div>
       </div>
       <div class="pillar">
-        <span class="pillar-num">02</span>
         <div class="pillar-text">
           <strong>Tailored, Context-Specific Capacity Building</strong>
-          <span>Combining deep policy, research, and technical expertise, we guide organizations in crafting data and AI principles and updating procurement policies. We develop and deliver targeted training solutions to help organizations become data and AI ready.</span>
+          <div class="pillar-body">
+            <span class="pillar-num">02</span>
+            <span>Combining deep policy, research, and technical expertise, we guide organizations in crafting data and AI principles and updating procurement policies. We develop and deliver targeted training solutions to help organizations become data and AI ready.</span>
+          </div>
         </div>
       </div>
     </div>
