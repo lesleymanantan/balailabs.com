@@ -419,10 +419,82 @@
     }
 
     /* MOBILE */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 1001;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--ink);
+      transition: all 0.3s;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(245,240,232,0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      z-index: 999;
+      flex-direction: column;
+      padding: 0.5rem 0 1rem;
+    }
+
+    .nav-dropdown.open { display: flex; }
+
+    .nav-dropdown a.nav-link {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      padding: 0.85rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      display: block;
+    }
+
+    .nav-dropdown a.nav-link.coming-soon { color: var(--border); }
+
+    .nav-dropdown .nav-cta-mobile {
+      margin: 1rem 1.5rem 0;
+      display: block;
+      background: var(--ink);
+      color: var(--paper);
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.85rem 1.5rem;
+      text-align: center;
+      transition: background 0.2s;
+    }
+
+    .nav-dropdown .nav-cta-mobile:hover { background: var(--accent); }
+
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; flex-wrap: wrap; gap: 0.75rem; }
-      .nav-links { gap: 0.75rem; }
-      nav a.nav-link { font-size: 0.6rem; }
+      nav { padding: 1rem 1.5rem; position: fixed; }
+      .nav-links { display: none; }
+      .nav-cta-btn { display: none; }
+      .hamburger { display: flex; }
       .page-hero { padding: 8rem 1.5rem 4rem; }
       .about-grid { padding: 5rem 1.5rem; }
       .about-pillars { grid-template-columns: 1fr; gap: 3rem; }
@@ -446,7 +518,21 @@
       <a href="#" class="nav-link coming-soon">Media<span class="coming-soon-tooltip">Coming Soon</span></a>
       <a href="/#contact" class="nav-link">Contact</a>
     </div>
-    <a href="/#contact" class="nav-cta-btn">Get Free Assessment →</a>
+    <div style="display:flex; align-items:center; gap:1rem;">
+      <a href="/#contact" class="nav-cta-btn">Get Free Assessment →</a>
+      <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <!-- Mobile dropdown -->
+    <div class="nav-dropdown" id="nav-dropdown">
+      <a href="/about.html" class="nav-link active">About Us</a>
+      <a href="/#platform" class="nav-link">Playbook</a>
+      <a href="#" class="nav-link coming-soon">Use Cases — Coming Soon</a>
+      <a href="#" class="nav-link coming-soon">Media — Coming Soon</a>
+      <a href="/#contact" class="nav-link">Contact</a>
+      <a href="/#contact" class="nav-cta-mobile">Get Free Assessment →</a>
+    </div>
   </nav>
 
   <!-- WHO WE ARE -->
@@ -530,6 +616,22 @@
       });
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
+
+    function toggleNav() {
+      const dropdown = document.getElementById('nav-dropdown');
+      const burger = document.getElementById('hamburger');
+      const isOpen = dropdown.classList.toggle('open');
+      burger.classList.toggle('open');
+      burger.setAttribute('aria-expanded', isOpen);
+    }
+
+    document.querySelectorAll('#nav-dropdown a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('nav-dropdown').classList.remove('open');
+        document.getElementById('hamburger').classList.remove('open');
+        document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
+      });
+    });
   </script>
 
   <!-- COOKIE CONSENT BANNER -->
