@@ -2056,11 +2056,73 @@
       if (!emailEl || !emailEl.value) { alert('Please enter your email address.'); return; }
       if (consentEl && !consentEl.checked) { alert('Please agree to receive the newsletter to subscribe.'); return; }
       const emailValue = emailEl.value;
-      if (success) success.style.display = 'block';
-      if (emailEl) emailEl.value = '';
-      if (consentEl) consentEl.checked = false;
-      window.open('https://balailabs.substack.com/subscribe?email=' + encodeURIComponent(emailValue), '_blank');
+
+      // Mailchimp JSONP submission (works on static sites, no backend needed)
+      const MC_URL = 'https://balailabs.us12.list-manage.com/subscribe/post-json?u=2be3484421025643ca17035c9&id=45b3764a94&f_id=007ff4e0f0';
+      const cbName = 'mcCallback_' + Date.now();
+      window[cbName] = function(data) {
+        if (data.result === 'success') {
+          if (success) {
+            success.textContent = "✓ You're subscribed! Watch your inbox.";
+            success.style.display = 'block';
+          }
+          if (emailEl) emailEl.value = '';
+          if (consentEl) consentEl.checked = false;
+          trackEvent('newsletter_subscribe', { location: prefix });
+        } else {
+          // Mailchimp returns HTML in the message (e.g. "already subscribed")
+          var msg = (data.msg || 'Subscription failed. Please try again.').replace(/<[^>]*>/g, '');
+          if (success) {
+            success.textContent = msg;
+            success.style.display = 'block';
+          } else {
+            alert(msg);
+          }
+        }
+        delete window[cbName];
+        document.getElementById(cbName) && document.getElementById(cbName).remove();
+      };
+
+      const params = 'EMAIL=' + encodeURIComponent(emailValue) +
+                     '&b_2be3484421025643ca17035c9_45b3764a94=' +
+                     '&c=' + cbName;
+      const script = document.createElement('script');
+      script.id = cbName;
+      script.src = MC_URL + '&' + params;
+      document.body.appendChild(script);
     }
+
+    /* ---- GA4 EVENT TRACKING ---- */
+    // Safe wrapper: only fires if the visitor accepted analytics and gtag exists
+    function trackEvent(name, params) {
+      if (typeof gtag === 'function' && localStorage.getItem('balai-consent') === 'accepted') {
+        gtag('event', name, params || {});
+      }
+    }
+
+    // Track "Get Free Assessment" clicks (nav, hero, mobile)
+    document.querySelectorAll('a[href="#contact"], a[href="/#contact"]').forEach(el => {
+      const text = (el.textContent || '').toLowerCase();
+      if (text.includes('assessment')) {
+        el.addEventListener('click', () => {
+          trackEvent('cta_get_assessment', {
+            location: el.classList.contains('nav-cta-btn') ? 'nav'
+                    : el.classList.contains('nav-cta-mobile') ? 'mobile_nav'
+                    : 'hero'
+          });
+        });
+      }
+    });
+
+    // Track email link clicks
+    document.querySelectorAll('a[href^="mailto:"]').forEach(el => {
+      el.addEventListener('click', () => trackEvent('email_click', { address: 'info' }));
+    });
+
+    // Track "Subscribe for updates" / "Subscribe to Newsletter" toggle opens
+    document.querySelectorAll('.contact-btn-secondary, .btn-subscribe').forEach(el => {
+      el.addEventListener('click', () => trackEvent('subscribe_form_open', {}));
+    });
   </script>
 
   <!-- COOKIE CONSENT BANNER -->
