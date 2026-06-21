@@ -24,6 +24,8 @@
   </script>
 
   <title>About Us — BALAI LABS</title>
+  <link rel="icon" type="image/png" href="/logos/mark-clay.png" />
+  <link rel="apple-touch-icon" href="/logos/mark-clay.png" />
   <meta name="description" content="Balai Labs is a not-for-profit SaaS and policy advocacy platform built on validated regional work across the Indo-Pacific." />
   <link rel="canonical" href="https://www.balailabs.com/about.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -80,16 +82,16 @@
     }
 
     .nav-logo {
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink);
-      text-decoration: none;
       flex-shrink: 0;
+      display: flex;
+      align-items: center;
     }
 
-    .nav-logo span { color: var(--accent); }
+    .nav-logo img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
 
     .nav-links {
       display: flex;
@@ -431,14 +433,11 @@
       gap: 1.5rem;
     }
 
-    .footer-logo {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
+    .footer-logo img {
+      height: 24px;
+      width: auto;
+      display: block;
     }
-
-    .footer-logo span { color: var(--accent); }
 
     .footer-links {
       display: flex;
@@ -677,7 +676,7 @@
 <body>
 
   <nav>
-    <a href="/" class="nav-logo">BALAI<span>.</span>LABS</a>
+    <a href="/" class="nav-logo"><img src="/logos/lockup-horizontal-ink.png" alt="BALAI.LABS" /></a>
     <div class="nav-links">
       <div class="nav-item">
         <a href="/about.html" class="nav-item-trigger active">About Us <span class="chev">▾</span></a>
@@ -857,7 +856,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-logo">BALAI<span>.</span>LABS</div>
+    <div class="footer-logo"><img src="/logos/lockup-horizontal-ink.png" alt="BALAI.LABS" /></div>
     <div class="footer-links">
       <a href="/about.html">About</a>
       <a href="/#platform">Playbook</a>
