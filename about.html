@@ -134,6 +134,64 @@
 
     nav a.nav-link.coming-soon:hover .coming-soon-tooltip { display: block; }
 
+    /* Desktop nav dropdown submenus (FTSG-style) */
+    .nav-item { position: relative; }
+    .nav-item-trigger {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: none;
+      border: none;
+      padding: 0;
+      transition: color 0.2s;
+    }
+    .nav-item-trigger:hover { color: var(--accent); }
+    .nav-item-trigger .chev { font-size: 0.55rem; opacity: 0.6; }
+
+    .nav-submenu {
+      position: absolute;
+      top: 140%;
+      left: 50%;
+      transform: translateX(-50%) translateY(6px);
+      background: var(--paper);
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+      min-width: 180px;
+      padding: 0.5rem 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+      z-index: 200;
+    }
+    .nav-item:hover .nav-submenu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-submenu a {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      padding: 0.6rem 1.25rem;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .nav-submenu a:hover { background: var(--cream); color: var(--accent); }
+    .nav-submenu a.coming-soon { color: var(--border); }
+    .nav-submenu a.coming-soon:hover { color: var(--muted); background: var(--cream); }
+
     .nav-cta-btn {
       background: var(--ink);
       color: var(--paper);
@@ -324,7 +382,7 @@
 
     .approach-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 0;
       border: 1px solid var(--border);
     }
@@ -442,6 +500,111 @@
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+    /* TEAM SECTION */
+    #team {
+      padding: 7rem 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .team-header { margin-bottom: 4rem; max-width: 720px; }
+    .team-header .section-label { color: var(--accent); }
+    .team-header h2 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+    .team-header p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .team-subhead {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 3.5rem 0 2rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem 4rem;
+    }
+
+    .team-member {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 1.75rem;
+      align-items: start;
+    }
+
+    /* Photo: B&W default, colour on hover (desktop) / tap (mobile) */
+    .team-photo {
+      width: 130px;
+      height: 160px;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: filter 0.4s ease, transform 0.4s ease;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      display: block;
+    }
+
+    .team-member:hover .team-photo,
+    .team-photo.is-active {
+      filter: grayscale(0%);
+      transform: scale(1.02);
+    }
+
+    /* Placeholder when no photo yet */
+    .team-photo-placeholder {
+      width: 130px;
+      height: 160px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--border);
+      flex-shrink: 0;
+    }
+
+    .team-name {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.2rem;
+      line-height: 1.2;
+    }
+
+    .team-role {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.9rem;
+    }
+
+    .team-bio {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
     .nav-dropdown {
       display: none;
       position: absolute;
@@ -498,10 +661,14 @@
       .page-hero { padding: 8rem 1.5rem 4rem; }
       .about-grid { padding: 5rem 1.5rem; }
       .about-pillars { grid-template-columns: 1fr; gap: 3rem; }
+      #team { padding: 5rem 1.5rem; }
+      .team-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .team-member { grid-template-columns: 100px 1fr; gap: 1.25rem; }
+      .team-photo, .team-photo-placeholder { width: 100px; height: 125px; }
       #approach { padding: 5rem 1.5rem; }
       .approach-header { grid-template-columns: 1fr; gap: 2rem; }
       .approach-grid { grid-template-columns: 1fr; }
-      .approach-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .approach-card { border-right: none; border-bottom: 1px solid var(--border); }
       .approach-card:last-child { border-bottom: none; }
       footer { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 2rem 1.5rem; }
     }
@@ -512,11 +679,22 @@
   <nav>
     <a href="/" class="nav-logo">BALAI<span>.</span>LABS</a>
     <div class="nav-links">
-      <a href="/about.html" class="nav-link active">About Us</a>
+      <div class="nav-item">
+        <a href="/about.html" class="nav-item-trigger active">About Us <span class="chev">▾</span></a>
+        <div class="nav-submenu">
+          <a href="/about.html#team">Team</a>
+          <a href="/about.html#approach">Approach</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <span class="nav-item-trigger">Insights <span class="chev">▾</span></span>
+        <div class="nav-submenu">
+          <a href="#" class="coming-soon">Publications</a>
+          <a href="#" class="coming-soon">Case Studies</a>
+        </div>
+      </div>
       <a href="/#platform" class="nav-link">Playbook</a>
-      <a href="#" class="nav-link coming-soon">Use Cases<span class="coming-soon-tooltip">Coming Soon</span></a>
-      <a href="#" class="nav-link coming-soon">Media<span class="coming-soon-tooltip">Coming Soon</span></a>
-      <a href="/#contact" class="nav-link">Contact</a>
+      <a href="/#contact" class="nav-link">Contact Us</a>
     </div>
     <div style="display:flex; align-items:center; gap:1rem;">
       <a href="/#contact" class="nav-cta-btn">Get Free Assessment →</a>
@@ -527,10 +705,11 @@
     <!-- Mobile dropdown -->
     <div class="nav-dropdown" id="nav-dropdown">
       <a href="/about.html" class="nav-link active">About Us</a>
+      <a href="/about.html#team" class="nav-link" style="padding-left:2.5rem;">— Team</a>
+      <a href="/about.html#approach" class="nav-link" style="padding-left:2.5rem;">— Approach</a>
+      <a href="#" class="nav-link coming-soon">Insights — Coming Soon</a>
       <a href="/#platform" class="nav-link">Playbook</a>
-      <a href="#" class="nav-link coming-soon">Use Cases — Coming Soon</a>
-      <a href="#" class="nav-link coming-soon">Media — Coming Soon</a>
-      <a href="/#contact" class="nav-link">Contact</a>
+      <a href="/#contact" class="nav-link">Contact Us</a>
       <a href="/#contact" class="nav-cta-mobile">Get Free Assessment →</a>
     </div>
   </nav>
@@ -538,7 +717,7 @@
   <!-- WHO WE ARE -->
   <section class="about-grid">
     <div class="reveal about-intro-block">
-      <p class="section-label">Who We Are</p>
+      <p class="section-label">Our Approach</p>
       <h2 class="section-title">Responsible data and AI starts with the right foundation.</h2>
       <div class="about-body">
         <p>Balai Labs reimagines the conduct of ethical and privacy impact assessments of data and AI systems to promote and instill transparency, safety, and accountability within organizations. Balai Labs was founded to address a gap in the Indo-Pacific — organizations want to adopt data and AI responsibly, but lack the tools, frameworks, and expertise to do so.</p>
@@ -563,11 +742,96 @@
     </div>
   </section>
 
+  <!-- TEAM -->
+  <section id="team">
+    <div class="team-header reveal">
+      <p class="section-label">Our Team</p>
+      <h2>The people behind Balai Labs.</h2>
+      <p>A cross-disciplinary team of technologists, policy researchers, and regional experts working to make ethical data and AI governance accessible across the Indo-Pacific.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="team-subhead">Founders</div>
+      <div class="team-grid">
+        <div class="team-member">
+          <img class="team-photo" src="/advisory_board/mark_bryan_manantan.jpeg" alt="Dr. Mark Bryan Manantan" data-placeholder="M" onclick="toggleColor(this)" onerror="revertPlaceholder(this)" />
+          <div>
+            <div class="team-name">Dr. Mark Bryan Manantan</div>
+            <div class="team-role">Co-Founder &amp; Senior Advisor</div>
+            <p class="team-bio">Mark Bryan Manantan, Ph.D. serves on UNESCO's AI Experts Without Borders and the advisory board of the ANU Philippines Institute, and is a research fellow at La Trobe University. Previously the inaugural Director of Cybersecurity and Critical Technologies at the Pacific Forum (Honolulu), he led the Cyber ASEAN Capacity Building Initiative (2022–2024), CONVERGE: Indo-Pacific Critical Technologies Forum (2024–2025), and the US–Japan and US–South Korea Cyber and Critical Technologies Partnerships (2020–2025).</p>
+          </div>
+        </div>
+        <div class="team-member">
+          <img class="team-photo" src="/advisory_board/lesley_manantan.jpeg" alt="Lesley Manantan" data-placeholder="L" onclick="toggleColor(this)" onerror="revertPlaceholder(this)" />
+          <div>
+            <div class="team-name">Lesley Manantan</div>
+            <div class="team-role">Co-Founder &amp; Chief Technology Officer</div>
+            <p class="team-bio">Lesley leads the design and engineering of the Balai Data &amp; AI Playbook. With a Master of Data Science and over six years in data science and analytics across enterprise and research settings, Lesley translates regional governance frameworks into accessible, practical tools.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="team-subhead">International Board of Advisors</div>
+      <div class="team-grid">
+        <div class="team-member">
+          <img class="team-photo" src="/advisory_board/majah_leah_ravago.jpeg" alt="Dr. Majah-Leah V. Ravago" data-placeholder="R" onclick="toggleColor(this)" onerror="revertPlaceholder(this)" />
+          <div>
+            <div class="team-name">Dr. Majah-Leah V. Ravago</div>
+            <div class="team-role">Economist &amp; Educator</div>
+            <p class="team-bio">Centre Director and Chief Executive of SEAMEO INNOTECH, and former President and CEO of the Development Academy of the Philippines. A professor of economics at Ateneo de Manila University, she has advised USAID, the World Bank, and the Asian Development Bank on energy economics, competition policy, and disaster economics. She holds a PhD in Economics from the University of Hawai‘i and was named an Outstanding Young Scientist in Economics by NAST in 2016.</p>
+          </div>
+        </div>
+        <div class="team-member">
+          <img class="team-photo" src="/advisory_board/charlie_hunt.png" alt="Dr. Charles T. Hunt" data-placeholder="H" onclick="toggleColor(this)" onerror="revertPlaceholder(this)" />
+          <div>
+            <div class="team-name">Dr. Charles T. Hunt</div>
+            <div class="team-role">Professor of International Relations, RMIT</div>
+            <p class="team-bio">Director of the RMIT Pacific Initiative and Senior Fellow (non-resident) with the United Nations University Centre for Policy Research. His research spans regional security governance, conflict prevention, and peacebuilding, with seven books and 45+ peer-reviewed articles. He advises the UN Secretariat, civil society, and foreign ministries, and writes for outlets including the Washington Post, The Conversation, and The Interpreter.</p>
+          </div>
+        </div>
+        <div class="team-member">
+          <img class="team-photo" src="/advisory_board/dahlia_simangan.jpeg" alt="Dr. Dahlia Simangan" data-placeholder="S" onclick="toggleColor(this)" onerror="revertPlaceholder(this)" />
+          <div>
+            <div class="team-name">Dr. Dahlia Simangan</div>
+            <div class="team-role">Associate Professor, Hiroshima University</div>
+            <p class="team-bio">Tenured Associate Professor of International Relations at Hiroshima University and a core member of the Network for Education and Research on Peace and Sustainability. Her research examines peacebuilding, sustainability, and international relations in the Anthropocene. She is a founding editor of <em>Peace and Sustainability</em> and Associate Editor of the <em>Review of International Studies</em>.</p>
+          </div>
+        </div>
+        <div class="team-member">
+          <img class="team-photo" src="/advisory_board/undral_ganbaatar.jpeg" alt="Undral Ganbaatar" data-placeholder="G" onclick="toggleColor(this)" onerror="revertPlaceholder(this)" />
+          <div>
+            <div class="team-name">Undral Ganbaatar</div>
+            <div class="team-role">Programme Specialist, UNESCO Jakarta</div>
+            <p class="team-bio">Programme Specialist for Social and Human Sciences at the UNESCO Office in Jakarta, contributing to UNESCO's work on the ethics of artificial intelligence and the social dimensions of emerging technologies across Southeast Asia.</p>
+          </div>
+        </div>
+        <div class="team-member">
+          <img class="team-photo" src="/advisory_board/brian_fletcher.jpeg" alt="Brian Fletcher" data-placeholder="B" onclick="toggleColor(this)" onerror="revertPlaceholder(this)" />
+          <div>
+            <div class="team-name">Brian Fletcher</div>
+            <div class="team-role">Director, Public Policy APJ, CrowdStrike</div>
+            <p class="team-bio">Director of Public Policy APJ at CrowdStrike, with prior roles at the Information Technology Industry Council, AmCham Singapore, and Amazon Web Services. His expertise spans national security, information security, cyber defence, and information assurance. He holds an MBA from the Australian Institute of Business.</p>
+          </div>
+        </div>
+        <div class="team-member">
+          <img class="team-photo" src="/advisory_board/amy_chang.jpeg" alt="Amy Chang" data-placeholder="A" onclick="toggleColor(this)" onerror="revertPlaceholder(this)" />
+          <div>
+            <div class="team-name">Amy Chang</div>
+            <div class="team-role">AI Security &amp; Cybersecurity Expert, Cisco</div>
+            <p class="team-bio">Leads the AI Threat Intelligence and Security Research team at Cisco, developing first-in-class AI threat intelligence and defensive capabilities for enterprise AI risk. Adjunct Faculty in Cybersecurity &amp; Emerging Threats at the Middlebury Institute, she has held senior roles at JPMorgan Chase, the U.S. House Foreign Affairs Committee, and the U.S. Navy. She is a graduate of Harvard University and Brown University.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- OUR APPROACH -->
   <section id="approach">
     <div class="approach-header reveal">
       <div>
-        <p class="section-label">Our Approach</p>
+        <p class="section-label">What Sets Us Apart</p>
         <h2 class="section-title">What makes us different.</h2>
       </div>
       <p class="approach-intro">Balai Labs is built on a fundamentally different philosophy of data and AI governance — one that starts with people, place, and plurality rather than frameworks and checklists.</p>
@@ -587,11 +851,6 @@
         <div class="approach-letter">C</div>
         <h3 class="approach-title">Complex Adaptive Ecosystem</h3>
         <p class="approach-body">AI governance is not a checklist. It is a living, dynamic system. We apply complex adaptive systems thinking to understand how technology, policy, people, and institutions interact — and evolve together across the Indo-Pacific.</p>
-      </div>
-      <div class="approach-card">
-        <div class="approach-letter">C</div>
-        <h3 class="approach-title">Color</h3>
-        <p class="approach-body">The Indo-Pacific is not monolithic. Its diversity of languages, cultures, legal systems, and histories must be reflected in how data and AI governance is designed and delivered. We celebrate that plurality as a strength.</p>
       </div>
     </div>
   </section>
@@ -617,6 +876,25 @@
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
 
+    // Team photo: tap to toggle colour (mobile); hover handled by CSS (desktop)
+    function toggleColor(img) {
+      img.classList.toggle('is-active');
+    }
+
+    // If a team photo has no src yet, show a lettered placeholder instead
+    function revertPlaceholder(img) {
+      var letter = img.getAttribute('data-placeholder') || '?';
+      var ph = document.createElement('div');
+      ph.className = 'team-photo-placeholder';
+      ph.textContent = letter;
+      img.replaceWith(ph);
+    }
+
+    // On load, swap any empty-src photos to placeholders
+    document.querySelectorAll('.team-photo').forEach(function(img) {
+      if (!img.getAttribute('src')) { revertPlaceholder(img); }
+    });
+
     function toggleNav() {
       const dropdown = document.getElementById('nav-dropdown');
       const burger = document.getElementById('hamburger');
@@ -631,6 +909,31 @@
         document.getElementById('hamburger').classList.remove('open');
         document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
       });
+    });
+
+    /* ---- GA4 EVENT TRACKING ---- */
+    function trackEvent(name, params) {
+      if (typeof gtag === 'function' && localStorage.getItem('balai-consent') === 'accepted') {
+        gtag('event', name, params || {});
+      }
+    }
+
+    document.querySelectorAll('a[href="/#contact"]').forEach(el => {
+      const text = (el.textContent || '').toLowerCase();
+      if (text.includes('assessment')) {
+        el.addEventListener('click', () => {
+          trackEvent('cta_get_assessment', {
+            location: el.classList.contains('nav-cta-btn') ? 'nav'
+                    : el.classList.contains('nav-cta-mobile') ? 'mobile_nav'
+                    : 'other',
+            page: 'about'
+          });
+        });
+      }
+    });
+
+    document.querySelectorAll('a[href^="mailto:"]').forEach(el => {
+      el.addEventListener('click', () => trackEvent('email_click', { address: 'info', page: 'about' }));
     });
   </script>
 
