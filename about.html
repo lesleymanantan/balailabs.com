@@ -541,15 +541,15 @@
 
     .team-member {
       display: grid;
-      grid-template-columns: 130px 1fr;
+      grid-template-columns: 170px 1fr;
       gap: 1.75rem;
       align-items: start;
     }
 
     /* Photo: B&W default, colour on hover (desktop) / tap (mobile) */
     .team-photo {
-      width: 130px;
-      height: 160px;
+      width: 170px;
+      height: 210px;
       object-fit: cover;
       filter: grayscale(100%);
       transition: filter 0.4s ease, transform 0.4s ease;
@@ -567,15 +567,15 @@
 
     /* Placeholder when no photo yet */
     .team-photo-placeholder {
-      width: 130px;
-      height: 160px;
+      width: 170px;
+      height: 210px;
       background: var(--cream);
       border: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: var(--serif);
-      font-size: 2.5rem;
+      font-size: 3rem;
       font-weight: 700;
       color: var(--border);
       flex-shrink: 0;
@@ -663,8 +663,8 @@
       .about-pillars { grid-template-columns: 1fr; gap: 3rem; }
       #team { padding: 5rem 1.5rem; }
       .team-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .team-member { grid-template-columns: 100px 1fr; gap: 1.25rem; }
-      .team-photo, .team-photo-placeholder { width: 100px; height: 125px; }
+      .team-member { grid-template-columns: 120px 1fr; gap: 1.25rem; }
+      .team-photo, .team-photo-placeholder { width: 120px; height: 150px; }
       #approach { padding: 5rem 1.5rem; }
       .approach-header { grid-template-columns: 1fr; gap: 2rem; }
       .approach-grid { grid-template-columns: 1fr; }
@@ -754,7 +754,7 @@
       <div class="team-subhead">Founders</div>
       <div class="team-grid">
         <div class="team-member">
-          <img class="team-photo" src="/advisory_board/mark_manantan_v2.jpg" alt="Dr. Mark Bryan Manantan" data-placeholder="M" onclick="toggleColor(this)" onerror="revertPlaceholder(this)" />
+          <img class="team-photo" src="/advisory_board/mark_manantan_v3.jpg" alt="Dr. Mark Bryan Manantan" data-placeholder="M" onclick="toggleColor(this)" onerror="revertPlaceholder(this)" />
           <div>
             <div class="team-name">Dr. Mark Bryan Manantan</div>
             <div class="team-role">Co-Founder &amp; Senior Advisor</div>
@@ -762,7 +762,7 @@
           </div>
         </div>
         <div class="team-member">
-          <img class="team-photo" src="/advisory_board/lesley_manantan.jpeg" alt="Lesley Manantan" data-placeholder="L" onclick="toggleColor(this)" onerror="revertPlaceholder(this)" />
+          <img class="team-photo" src="/advisory_board/lesley_manantan_v2.jpeg" alt="Lesley Manantan" data-placeholder="L" onclick="toggleColor(this)" onerror="revertPlaceholder(this)" />
           <div>
             <div class="team-name">Lesley Manantan</div>
             <div class="team-role">Co-Founder &amp; Chief Technology Officer</div>
@@ -779,32 +779,8 @@
           <img class="team-photo" src="/advisory_board/majah_leah_ravago.jpeg" alt="Dr. Majah-Leah V. Ravago" data-placeholder="R" onclick="toggleColor(this)" onerror="revertPlaceholder(this)" />
           <div>
             <div class="team-name">Dr. Majah-Leah V. Ravago</div>
-            <div class="team-role">Economist &amp; Educator</div>
+            <div class="team-role">Centre Director &amp; Chief Executive, SEAMEO INNOTECH</div>
             <p class="team-bio">Dr. Majah-Leah V. Ravago is an economist and educator with a strong background in leadership and policy research. She is the Centre Director and Chief Executive of SEAMEO INNOTECH, and has served as President and CEO of the Development Academy of the Philippines and President of the Philippine Economic Society. A professor at Ateneo de Manila University, she has advised USAID, the World Bank, and the Asian Development Bank on energy economics, competition policy, and disaster economics. She holds a PhD in Economics from the University of Hawai‘i and was named an Outstanding Young Scientist in Economics by NAST in 2016.</p>
-          </div>
-        </div>
-        <div class="team-member">
-          <img class="team-photo" src="/advisory_board/charlie_hunt.png" alt="Dr. Charles T. Hunt" data-placeholder="H" onclick="toggleColor(this)" onerror="revertPlaceholder(this)" />
-          <div>
-            <div class="team-name">Dr. Charles T. Hunt</div>
-            <div class="team-role">Professor of International Relations, RMIT</div>
-            <p class="team-bio">Dr Charles T. Hunt is Director of the RMIT Pacific Initiative and Professor of International Relations at RMIT University, Melbourne, and Senior Fellow (non-resident) with the United Nations University Centre for Policy Research. His research focuses on global and regional security governance, conflict prevention, and peacebuilding, with seven books and more than 45 peer-reviewed articles and book chapters. He regularly advises the UN Secretariat, civil society organisations, and foreign ministries, and writes for outlets including the Washington Post, The Conversation, and The Interpreter. His expertise has featured on the BBC, Al-Jazeera, CNN, ABC, and SBS.</p>
-          </div>
-        </div>
-        <div class="team-member">
-          <img class="team-photo" src="/advisory_board/dahlia_simangan.jpeg" alt="Dr. Dahlia Simangan" data-placeholder="S" onclick="toggleColor(this)" onerror="revertPlaceholder(this)" />
-          <div>
-            <div class="team-name">Dr. Dahlia Simangan</div>
-            <div class="team-role">Associate Professor, Hiroshima University</div>
-            <p class="team-bio">Dr. Dahlia Simangan is a tenured Associate Professor of International Relations at Hiroshima University and a core member of the Network for Education and Research on Peace and Sustainability (NERPS). Her research interests include peacebuilding, the relationship between peace and sustainability, and international relations in the Anthropocene. She is the author of <em>International Peacebuilding and Local Involvement: A Liberal Renaissance?</em> (Routledge, 2019) and has published in leading International Relations and Peace Studies journals. She is a founding editor of <em>Peace and Sustainability</em>, Associate Editor of the <em>Review of International Studies</em>, and a member of the Planet Politics Institute.</p>
-          </div>
-        </div>
-        <div class="team-member">
-          <img class="team-photo" src="/advisory_board/undral_ganbaatar.jpeg" alt="Undral Ganbaatar" data-placeholder="G" onclick="toggleColor(this)" onerror="revertPlaceholder(this)" />
-          <div>
-            <div class="team-name">Undral Ganbaatar</div>
-            <div class="team-role">Programme Specialist, UNESCO Jakarta</div>
-            <p class="team-bio">Undral Ganbaatar is Programme Specialist for Social and Human Sciences at the UNESCO Office in Jakarta. In this role she contributes to UNESCO's work on the ethics of artificial intelligence and the social dimensions of emerging technologies across Southeast Asia, supporting the implementation of global standards such as the UNESCO Recommendation on the Ethics of Artificial Intelligence at the regional and national level. Her work bridges international policy and on-the-ground practice, helping governments and institutions in the region advance inclusive, human-centred approaches to technology and social development.</p>
           </div>
         </div>
         <div class="team-member">
@@ -821,6 +797,30 @@
             <div class="team-name">Amy Chang</div>
             <div class="team-role">AI Security &amp; Cybersecurity Expert, Cisco</div>
             <p class="team-bio">Amy Chang is a renowned AI security and cybersecurity expert with almost two decades of practitioner, academic, and government experience. She leads the AI Threat Intelligence and Security Research team at Cisco, developing first-in-class AI threat intelligence and defensive capabilities to secure enterprises from AI risk, and is Adjunct Faculty in Cybersecurity &amp; Emerging Threats at the Middlebury Institute. She has held senior roles across government, military, and industry — including Executive Director for Global Cybersecurity Operations at JPMorgan Chase, Staff Director on the U.S. House Foreign Affairs Committee, and officer in the U.S. Navy. She is a graduate of Harvard University and Brown University.</p>
+          </div>
+        </div>
+        <div class="team-member">
+          <img class="team-photo" src="/advisory_board/undral_ganbaatar.jpeg" alt="Undral Ganbaatar" data-placeholder="G" onclick="toggleColor(this)" onerror="revertPlaceholder(this)" />
+          <div>
+            <div class="team-name">Undral Ganbaatar</div>
+            <div class="team-role">Programme Specialist, UNESCO Jakarta</div>
+            <p class="team-bio">Undral Ganbaatar is Programme Specialist for Social and Human Sciences at the UNESCO Office in Jakarta. In this role she contributes to UNESCO's work on the ethics of artificial intelligence and the social dimensions of emerging technologies across Southeast Asia, supporting the implementation of global standards such as the UNESCO Recommendation on the Ethics of Artificial Intelligence at the regional and national level. Her work bridges international policy and on-the-ground practice, helping governments and institutions in the region advance inclusive, human-centred approaches to technology and social development.</p>
+          </div>
+        </div>
+        <div class="team-member">
+          <img class="team-photo" src="/advisory_board/dahlia_simangan.jpeg" alt="Dr. Dahlia Simangan" data-placeholder="S" onclick="toggleColor(this)" onerror="revertPlaceholder(this)" />
+          <div>
+            <div class="team-name">Dr. Dahlia Simangan</div>
+            <div class="team-role">Associate Professor, Hiroshima University</div>
+            <p class="team-bio">Dr. Dahlia Simangan is a tenured Associate Professor of International Relations at Hiroshima University and a core member of the Network for Education and Research on Peace and Sustainability (NERPS). Her research interests include peacebuilding, the relationship between peace and sustainability, and international relations in the Anthropocene. She is the author of <em>International Peacebuilding and Local Involvement: A Liberal Renaissance?</em> (Routledge, 2019) and has published in leading International Relations and Peace Studies journals. She is a founding editor of <em>Peace and Sustainability</em>, Associate Editor of the <em>Review of International Studies</em>, and a member of the Planet Politics Institute.</p>
+          </div>
+        </div>
+        <div class="team-member">
+          <img class="team-photo" src="/advisory_board/charlie_hunt.png" alt="Dr. Charles T. Hunt" data-placeholder="H" onclick="toggleColor(this)" onerror="revertPlaceholder(this)" />
+          <div>
+            <div class="team-name">Dr. Charles T. Hunt</div>
+            <div class="team-role">Professor of International Relations, RMIT</div>
+            <p class="team-bio">Dr Charles T. Hunt is Director of the RMIT Pacific Initiative and Professor of International Relations at RMIT University, Melbourne, and Senior Fellow (non-resident) with the United Nations University Centre for Policy Research. His research focuses on global and regional security governance, conflict prevention, and peacebuilding, with seven books and more than 45 peer-reviewed articles and book chapters. He regularly advises the UN Secretariat, civil society organisations, and foreign ministries, and writes for outlets including the Washington Post, The Conversation, and The Interpreter. His expertise has featured on the BBC, Al-Jazeera, CNN, ABC, and SBS.</p>
           </div>
         </div>
       </div>
