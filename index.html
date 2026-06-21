@@ -81,7 +81,7 @@
       --sans: 'DM Sans', sans-serif;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
 
     body {
       background-color: var(--paper);
@@ -118,8 +118,9 @@
 
     .nav-logo {
       flex-shrink: 0;
-      display: flex;
+      display: inline-flex;
       align-items: center;
+      line-height: 0;
     }
 
     .nav-logo img {
@@ -1640,6 +1641,12 @@
       flex-wrap: wrap;
       gap: 1.5rem;
       background: var(--paper);
+    }
+
+    .footer-logo {
+      line-height: 0;
+      display: inline-flex;
+      align-items: center;
     }
 
     .footer-logo img {
